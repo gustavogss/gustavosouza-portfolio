@@ -1,6 +1,6 @@
-import { PageLayout } from '@/components/PageLayout';
-import { Outlet, useLocation } from 'react-router-dom';
-import { Check } from 'lucide-react';
+import { PageLayout } from "@/components/PageLayout";
+import { Outlet, useLocation } from "react-router-dom";
+import { Check } from "lucide-react";
 
 type SkillCategory = {
   title: string;
@@ -9,89 +9,81 @@ type SkillCategory = {
 };
 
 const skillCategories: Record<string, SkillCategory> = {
-  '/skills/frontend': {
-    title: 'Frontend Development',
+  "/skills/frontend": {
+    title: "Frontend Development",
     skills: [
-      'React',
-      'Next.js',
-      'TypeScript',
-      'Tailwind CSS',
-      'Styled Components',
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Styled Components",
     ],
   },
-  '/skills/mobile': {
-    title: 'Mobile Development',
+  "/skills/mobile": {
+    title: "Mobile Development",
+    skills: ["React Native", "Android (Java/Kotlin)", "Flutter"],
+  },
+  "/skills/backend": {
+    title: "Backend Development",
     skills: [
-      'React Native',
-      'Android (Java/Kotlin)',
-      'Flutter',
+      "Node.js",
+      "Express",
+      "Fastify",
+      "Firebase",
+      "Supabase",
+      "MySQL",
+      "Docker",
+      "PHP",
+      "Magento 2",
     ],
   },
-  '/skills/backend': {
-    title: 'Backend Development',
+  "/skills/devops": {
+    title: "DevOps",
+    skills: ["Docker", "Kubernetes", "AWS", "CI/CD Pipelines", "Terraform"],
+  },
+  "/skills/devsecops": {
+    title: "DevSecOps & Infraestrutura",
     skills: [
-      'Node.js',
-      'Express',
-      'Fastify',
-      'Firebase',
-      'Supabase',
-      'MySQL',
-      'Docker',
-      'PHP',
-      'Magento 2',
+      "Pipelines CI/CD com SAST (SonarQube, Dependency Check, Bandit) e DAST (OWASP ZAP)",
+      "GitFlow para versionamento e gerenciamento de branches",
+      "Monitoramento e alertas: Prometheus, Grafana",
+      "Provisionamento e automação: Terraform",
+      "N8N e outras ferramentas low-code",
+      "Engenharia de Prompt e Engenharia Reversa aplicada a IA",
     ],
   },
-  '/skills/devops': {
-    title: 'DevOps',
+  "/skills/cyber": {
+    title: "Segurança & Pentest",
+    subtitle: "(em estudo / prática)",
     skills: [
-      'Docker',
-      'Kubernetes',
-      'AWS',
-      'CI/CD Pipelines',
-      'Terraform',
+      "Ferramentas: Burp Suite, Nmap, Metasploit, Netcat, Kali Linux",
+      "Simulações: brute force (Hydra), SQL Injection, IDOR, XSS",
+      "Hardening e correção de vulnerabilidades",
+      "Shell Script (OSINT e enumeração)",
+      "Python (em aperfeiçoamento para Pentest)",
     ],
   },
-  '/skills/devsecops': {
-    title: 'DevSecOps & Infraestrutura',
+  "/skills/design": {
+    title: "UI/UX",
     skills: [
-      'Pipelines CI/CD com SAST (SonarQube, Dependency Check, Bandit) e DAST (OWASP ZAP)',
-      'GitFlow para versionamento e gerenciamento de branches',
-      'Monitoramento e alertas: Prometheus, Grafana',
-      'Provisionamento e automação: Terraform',
-      'N8N e outras ferramentas low-code',
-      'Engenharia de Prompt e Engenharia Reversa aplicada a IA',
-    ],
-  },
-  '/skills/cyber': {
-    title: 'Segurança & Pentest',
-    subtitle: '(em estudo / prática)',
-    skills: [
-      'Ferramentas: Burp Suite, Nmap, Metasploit, Netcat, Kali Linux',
-      'Simulações: brute force (Hydra), SQL Injection, IDOR, XSS',
-      'Hardening e correção de vulnerabilidades',
-      'Shell Script (OSINT e enumeração)',
-      'Python (em aperfeiçoamento para Pentest)',
-    ],
-  },
-  '/skills/design': {
-    title: 'UI/UX',
-    skills: [
-      'Prototipação e design de soluções com Figma',
-      'Design de interfaces',
-      'Design Systems',
+      "Prototipação e design de soluções com Figma",
+      "Design de interfaces",
+      "Design Systems",
     ],
   },
 };
 
 export default function Skills() {
   const location = useLocation();
-  const currentCategory = skillCategories[location.pathname as keyof typeof skillCategories];
+  const currentCategory =
+    skillCategories[location.pathname as keyof typeof skillCategories];
 
-  if (location.pathname === '/skills') {
+  if (location.pathname === "/skills") {
     return (
       <PageLayout
         title="Habilidades"
         description="Minhas competências técnicas e ferramentas"
+        centered
       >
         <div className="animate-section text-center py-12">
           <p className="text-xl text-muted-foreground">
@@ -106,7 +98,8 @@ export default function Skills() {
     return (
       <PageLayout
         title={currentCategory.title}
-        description={currentCategory.subtitle || 'Tecnologias e ferramentas'}
+        description={currentCategory.subtitle || "Tecnologias e ferramentas"}
+        centered
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {currentCategory.skills.map((skill, index) => (

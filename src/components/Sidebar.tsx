@@ -42,6 +42,7 @@ const menuItems = [
     ],
   },
   { name: "Formação", icon: GraduationCap, path: "/education" },
+  // Blog normalizado para o mesmo padrão dos demais
   { name: "Blog", icon: FileText, path: "/blog" },
 ];
 
@@ -80,9 +81,9 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-[280px] bg-sidebar-bg border-r border-border overflow-y-auto">
+    <aside className="fixed left-0 top-0 h-screen w-[280px] bg-sidebar-bg border-r border-border overflow-y-auto scrollbar-hide scroll-smooth">
       <div className="flex flex-col h-full p-6">
-        {/* Header with Profile */}
+        {/* Header */}
         <div className="flex flex-col items-center mb-8 relative">
           <button
             onClick={handleThemeToggle}
@@ -114,7 +115,7 @@ export function Sidebar() {
           {menuItems.map((item) => (
             <div key={item.name} className="menu-item">
               {item.subItems ? (
-                <div>
+                <>
                   <button
                     onClick={() =>
                       setExpandedItem(
@@ -133,6 +134,7 @@ export function Sidebar() {
                       }`}
                     />
                   </button>
+
                   {expandedItem === item.name && (
                     <div className="ml-4 mt-1 space-y-1">
                       {item.subItems.map((subItem) => (
@@ -153,8 +155,9 @@ export function Sidebar() {
                       ))}
                     </div>
                   )}
-                </div>
+                </>
               ) : (
+                // Todos os NavLinks (incluindo Blog) seguem o mesmo padrão aqui
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
@@ -176,7 +179,7 @@ export function Sidebar() {
         {/* Footer */}
         <div className="space-y-4 pt-6 border-t border-border">
           <a
-            href="https://br1062.hostgator.com.br:2083/cpsess2860272438/frontend/jupiter/filemanager/showfile.html?file=Profile.pdf&fileop=&dir=%2Fhome3%2Fgust0039%2Fgustavosouza.dev.br%2Fwp-content%2Fcurriculum&dirop=&charset=&file_charset=&baseurl=&basedir="
+            href="https://gustavosouza.dev.br/wp-content/curriculum/Profile.pdf"
             download
             className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary-hover transition-smooth animation-pulse-subtle"
           >

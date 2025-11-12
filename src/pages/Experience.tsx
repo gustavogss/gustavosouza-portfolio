@@ -3,20 +3,38 @@ import { Briefcase, Calendar } from "lucide-react";
 
 const experiences = [
   {
-    title: "Web Full Stack Developer e Mobile",
-    company: "G Soluções Digitais e Consultori",
-    period: "2023 - Presente",
+    title: "Desenvolvedor Web Full Stack e Mobile",
+    company: "G Soluções Digitais e Consultoria",
+    period: "junho de 2023 - Presente",
     description:
-      "Desenvolvimento de aplicações web e mobile com foco em inovação.",
-    technologies: ["Next", "Node", "TypeScript", "Docker", "React Native"],
+      "Desenvolvimento de landing pages, sites institucionais, portais para imobiliárias e sistemas sob demanda.",
+    technologies: [
+      "Next.js",
+      "React Native",
+      "Node.js",
+      "TypeScript",
+      "Docker",
+      "TailwindCSS",
+      "Firebase",
+      "Supabase",
+      "WordPress",
+    ],
   },
-
   {
-    title: "Web Developer",
-    company: "Web Design - Freelancer",
-    period: "2018 - 2023",
-    description: "Desenvolvimento de sites intitucionais e landpages.",
-    technologies: ["Wordpress", "Magento"],
+    title: "Empreendedor / Administrador de TI e Marketing",
+    company: "Hotel Pousada Solar da Praia",
+    period: "fevereiro de 2002 - outubro de 2018",
+    description:
+      "Responsável pela infraestrutura de tecnologia, site e marketing digital do hotel. Também atuava na gestão de RH, financeiro e operações, desenvolvendo competências em liderança, empatia e autogestão.",
+    technologies: ["HTML", "CSS", "Flash", "Infraestrutura de Rede"],
+  },
+  {
+    title: "Estagiário de TI",
+    company: "Projeto Cooperar",
+    period: "março de 1998 - outubro de 1998",
+    description:
+      "Participação no desenvolvimento do sistema FROTA, para controle e gestão da frota de veículos da empresa, utilizando Delphi e SQL.",
+    technologies: ["Delphi", "SQL", "Windows Server"],
   },
 ];
 
@@ -24,7 +42,8 @@ export default function Experience() {
   return (
     <PageLayout
       title="Experiência Profissional"
-      description="Minha trajetória e experiências no desenvolvimento de software"
+      description="Minha trajetória e experiências no desenvolvimento de software e tecnologia"
+      centered
     >
       <div className="space-y-8">
         {experiences.map((exp, index) => (
