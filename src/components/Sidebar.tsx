@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { 
-  Briefcase, 
-  FolderKanban, 
-  Settings, 
-  GraduationCap, 
+import { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
+import {
+  Briefcase,
+  FolderKanban,
+  Settings,
+  GraduationCap,
   FileText,
   Sun,
   Moon,
@@ -19,40 +19,42 @@ import {
   Cloud,
   Shield,
   Lock,
-  Palette
-} from 'lucide-react';
-import { useTheme } from '@/contexts/ThemeContext';
-import { gsap } from 'gsap';
+  Palette,
+} from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { gsap } from "gsap";
 
 const menuItems = [
-  { name: 'Experiência', icon: Briefcase, path: '/experience' },
-  { name: 'Portfólio', icon: FolderKanban, path: '/portfolio' },
-  { 
-    name: 'Habilidades', 
-    icon: Settings, 
-    path: '/skills',
+  { name: "Experiência", icon: Briefcase, path: "/experience" },
+  { name: "Portfólio", icon: FolderKanban, path: "/portfolio" },
+  {
+    name: "Habilidades",
+    icon: Settings,
+    path: "/skills",
     subItems: [
-      { name: 'Frontend', icon: Code, path: '/skills/frontend' },
-      { name: 'Mobile', icon: Smartphone, path: '/skills/mobile' },
-      { name: 'Backend', icon: Server, path: '/skills/backend' },
-      { name: 'DevOps', icon: Cloud, path: '/skills/devops' },
-      { name: 'DevSecOps', icon: Shield, path: '/skills/devsecops' },
-      { name: 'Cyber', icon: Lock, path: '/skills/cyber' },
-      { name: 'Design', icon: Palette, path: '/skills/design' },
-    ]
+      { name: "Frontend", icon: Code, path: "/skills/frontend" },
+      { name: "Mobile", icon: Smartphone, path: "/skills/mobile" },
+      { name: "Backend", icon: Server, path: "/skills/backend" },
+      { name: "DevOps", icon: Cloud, path: "/skills/devops" },
+      { name: "DevSecOps", icon: Shield, path: "/skills/devsecops" },
+      { name: "Cyber", icon: Lock, path: "/skills/cyber" },
+      { name: "Design", icon: Palette, path: "/skills/design" },
+    ],
   },
-  { name: 'Formação', icon: GraduationCap, path: '/education' },
-  { name: 'Blog', icon: FileText, path: '/blog' },
+  { name: "Formação", icon: GraduationCap, path: "/education" },
+  { name: "Blog", icon: FileText, path: "/blog" },
 ];
 
 export function Sidebar() {
   const { theme, toggleTheme } = useTheme();
   const menuRef = useRef<HTMLDivElement>(null);
-  const [expandedItem, setExpandedItem] = useState<string | null>('Habilidades');
+  const [expandedItem, setExpandedItem] = useState<string | null>(
+    "Habilidades"
+  );
 
   useEffect(() => {
     if (menuRef.current) {
-      const items = menuRef.current.querySelectorAll('.menu-item');
+      const items = menuRef.current.querySelectorAll(".menu-item");
       gsap.fromTo(
         items,
         { opacity: 0, x: -20 },
@@ -61,7 +63,7 @@ export function Sidebar() {
           x: 0,
           duration: 0.5,
           stagger: 0.1,
-          ease: 'power3.out',
+          ease: "power3.out",
           delay: 0.3,
         }
       );
@@ -69,10 +71,10 @@ export function Sidebar() {
   }, []);
 
   const handleThemeToggle = () => {
-    gsap.to('.theme-toggle', {
-      rotation: '+=360',
+    gsap.to(".theme-toggle", {
+      rotation: "+=360",
       duration: 0.6,
-      ease: 'power2.inOut',
+      ease: "power2.inOut",
     });
     toggleTheme();
   };
@@ -87,13 +89,13 @@ export function Sidebar() {
             className="theme-toggle absolute top-0 right-0 p-2 rounded-lg hover:bg-muted transition-smooth"
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? (
+            {theme === "dark" ? (
               <Sun className="w-5 h-5 text-sidebar-text" />
             ) : (
               <Moon className="w-5 h-5 text-sidebar-text" />
             )}
           </button>
-          
+
           <img
             src="https://github.com/gustavogss.png"
             alt="Gustavo Souza"
@@ -114,7 +116,11 @@ export function Sidebar() {
               {item.subItems ? (
                 <div>
                   <button
-                    onClick={() => setExpandedItem(expandedItem === item.name ? null : item.name)}
+                    onClick={() =>
+                      setExpandedItem(
+                        expandedItem === item.name ? null : item.name
+                      )
+                    }
                     className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sidebar-text hover:text-sidebar-hover hover:bg-muted transition-smooth"
                   >
                     <div className="flex items-center gap-3">
@@ -123,7 +129,7 @@ export function Sidebar() {
                     </div>
                     <ChevronDown
                       className={`w-4 h-4 transition-transform ${
-                        expandedItem === item.name ? 'rotate-180' : ''
+                        expandedItem === item.name ? "rotate-180" : ""
                       }`}
                     />
                   </button>
@@ -136,8 +142,8 @@ export function Sidebar() {
                           className={({ isActive }) =>
                             `flex items-center gap-3 px-4 py-2 rounded-lg transition-smooth ${
                               isActive
-                                ? 'text-sidebar-active-text bg-muted font-medium'
-                                : 'text-sidebar-text hover:text-sidebar-hover hover:bg-muted'
+                                ? "text-sidebar-active-text bg-muted font-medium"
+                                : "text-sidebar-text hover:text-sidebar-hover hover:bg-muted"
                             }`
                           }
                         >
@@ -154,8 +160,8 @@ export function Sidebar() {
                   className={({ isActive }) =>
                     `flex items-center gap-3 px-4 py-3 rounded-lg transition-smooth ${
                       isActive
-                        ? 'text-sidebar-active-text bg-muted font-medium'
-                        : 'text-sidebar-text hover:text-sidebar-hover hover:bg-muted'
+                        ? "text-sidebar-active-text bg-muted font-medium"
+                        : "text-sidebar-text hover:text-sidebar-hover hover:bg-muted"
                     }`
                   }
                 >
@@ -170,7 +176,7 @@ export function Sidebar() {
         {/* Footer */}
         <div className="space-y-4 pt-6 border-t border-border">
           <a
-            href="/cv.pdf"
+            href="https://br1062.hostgator.com.br:2083/cpsess2860272438/frontend/jupiter/filemanager/showfile.html?file=Profile.pdf&fileop=&dir=%2Fhome3%2Fgust0039%2Fgustavosouza.dev.br%2Fwp-content%2Fcurriculum&dirop=&charset=&file_charset=&baseurl=&basedir="
             download
             className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary-hover transition-smooth animation-pulse-subtle"
           >

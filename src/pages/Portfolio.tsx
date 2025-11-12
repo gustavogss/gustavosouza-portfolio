@@ -7,7 +7,7 @@ const projects = [
     description:
       "Estudo Caso: Criação, Implementação e Segurança de um Sistema de Gerenciamento de Tarefas usando ferramentas DAST/SAST como Bandit, OWASP ZAP. Promotheus e Grafana (monitoramento) durante um ataque de bruta force com Hydra na aplicação usando uma wordlist de usuários e senhas.",
     image:
-      "https://github.com/gustavogss/task-manager/raw/main/images/pipeline-finished.png",
+      "https://github.com/gustavogss/task-manager/raw/main/images/monitory.png",
     tags: ["Python", "Docker", "OWASP ZAP", "Prometheus", "Grafana"],
     github: "https://github.com/gustavogss/task-manager",
   },
@@ -16,7 +16,7 @@ const projects = [
     description:
       "Aplicativo de Delivery para dispositvos Android e IOS implementado com Flutter",
     image:
-      "https://github.com/gustavogss/gustavosouza-portfolio/blob/main/src/assets/flutter-app.png",
+      "https://private-user-images.githubusercontent.com/20332960/513080749-81dc365e-e779-4669-a66b-1db946f9122c.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjI5MTkxMDEsIm5iZiI6MTc2MjkxODgwMSwicGF0aCI6Ii8yMDMzMjk2MC81MTMwODA3NDktODFkYzM2NWUtZTc3OS00NjY5LWE2NmItMWRiOTQ2ZjkxMjJjLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTExMTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMTEyVDAzNDAwMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTZmNGMwMDQzZDU2YTE3OTBkZmVkMTYxZDNhYmYyNTRjODQ4YTIzZGE0YzljNTAwN2Q5MjZjNzk5NDkzNzM3M2MmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.8sdv-b7V34vFfaEWvs4wSkAsBf2t_-pektG0sQgcZJ8",
     tags: ["Flutter", "Material UI", "Dart"],
     github: "https://github.com/gustavogss/delivery",
   },
