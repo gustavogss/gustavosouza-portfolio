@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Design System - Dark/Light Theme */
+
+@layer base {
+  :root {
+    /* Light Mode - Content Area */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 13%;
+    
+    /* Sidebar Light */
+    --sidebar-bg: 0 0% 100%;
+    --sidebar-text: 0 0% 13%;
+    --sidebar-hover: 314 75% 18%;
+    --sidebar-active-text: 0 0% 67%;
+    
+    /* Accent Color */
+    --primary: 314 75% 18%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 314 75% 25%;
+    
+    /* UI Elements */
+    --card: 314 79% 18%;
+    --card-foreground: 0 0% 93%;
+    --card-text-muted: 0 0% 67%;
+    --border: 0 0% 90%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    
+    --radius: 0.75rem;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Dark Mode - Content Area */
+    --background: 0 0% 93%;
+    --foreground: 0 0% 13%;
+    
+    /* Sidebar Dark */
+    --sidebar-bg: 0 0% 13%;
+    --sidebar-text: 0 0% 93%;
+    --sidebar-hover: 0 0% 67%;
+    --sidebar-active-text: 0 0% 67%;
+    
+    /* Accent Color (same) */
+    --primary: 314 75% 18%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 314 75% 25%;
+    
+    /* UI Elements Dark */
+    --card: 314 79% 18%;
+    --card-foreground: 0 0% 93%;
+    --card-text-muted: 0 0% 67%;
+    --border: 0 0% 25%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border transition-colors duration-300;
+  }
+
+  body {
+    @apply bg-background text-foreground font-roboto;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .animation-pulse-subtle {
+    animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-subtle {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.95;
+      transform: scale(1.02);
+    }
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+}
