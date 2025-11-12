@@ -1,27 +1,22 @@
-import { PageLayout } from '@/components/PageLayout';
-import { Briefcase, Calendar } from 'lucide-react';
+import { PageLayout } from "@/components/PageLayout";
+import { Briefcase, Calendar } from "lucide-react";
 
 const experiences = [
   {
-    title: 'Senior Full Stack Developer',
-    company: 'Tech Company',
-    period: '2022 - Presente',
-    description: 'Desenvolvimento de aplicações web e mobile com foco em segurança e DevOps.',
-    technologies: ['React', 'Node.js', 'TypeScript', 'AWS', 'Docker'],
+    title: "Web Full Stack Developer e Mobile",
+    company: "G Soluções Digitais e Consultori",
+    period: "2023 - Presente",
+    description:
+      "Desenvolvimento de aplicações web e mobile com foco em inovação.",
+    technologies: ["Next", "Node", "TypeScript", "Docker", "React Native"],
   },
+
   {
-    title: 'DevSecOps Engineer',
-    company: 'Security Firm',
-    period: '2020 - 2022',
-    description: 'Implementação de pipelines CI/CD com práticas de segurança integradas.',
-    technologies: ['Jenkins', 'Kubernetes', 'Terraform', 'Security Tools'],
-  },
-  {
-    title: 'Full Stack Developer',
-    company: 'Digital Agency',
-    period: '2018 - 2020',
-    description: 'Desenvolvimento de soluções web completas para diversos clientes.',
-    technologies: ['React', 'Python', 'PostgreSQL', 'Redis'],
+    title: "Web Developer",
+    company: "Web Design - Freelancer",
+    period: "2018 - 2023",
+    description: "Desenvolvimento de sites intitucionais e landpages.",
+    technologies: ["Wordpress", "Magento"],
   },
 ];
 

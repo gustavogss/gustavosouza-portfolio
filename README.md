@@ -1,11 +1,6 @@
-# Meu Portfólio
-
+# Meu Portfólio:
 - Experiência
-
 - Projetos
-
 - Habilidades Técnicas
-
 - Blog
-
 - Curriculum 

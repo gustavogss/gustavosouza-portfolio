@@ -1,30 +1,23 @@
-import { PageLayout } from '@/components/PageLayout';
-import { ExternalLink, Github } from 'lucide-react';
+import { PageLayout } from "@/components/PageLayout";
+import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'Plataforma completa de e-commerce com painel administrativo e integração de pagamentos.',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=400&fit=crop',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    github: '#',
-    demo: '#',
+    title: "task-manager",
+    description:
+      "Estudo Caso: Criação, Implementação e Segurança de um Sistema de Gerenciamento de Tarefas usando ferramentas DAST/SAST como Bandit, OWASP ZAP. Promotheus e Grafana (monitoramento) durante um ataque de bruta force com Hydra na aplicação usando uma wordlist de usuários e senhas.",
+    image:
+      "https://github.com/gustavogss/task-manager/raw/main/images/pipeline-finished.png",
+    tags: ["Python", "Docker", "OWASP ZAP", "Prometheus", "Grafana"],
+    github: "https://github.com/gustavogss/task-manager",
   },
   {
-    title: 'Security Dashboard',
-    description: 'Dashboard para monitoramento de segurança com análise em tempo real de vulnerabilidades.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-    tags: ['TypeScript', 'Python', 'Docker', 'Kubernetes'],
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'Mobile App',
-    description: 'Aplicativo mobile cross-platform para gestão de projetos e tarefas.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop',
-    tags: ['React Native', 'Firebase', 'Redux'],
-    github: '#',
-    demo: '#',
+    title: "delivery",
+    description:
+      "Aplicativo de Delivery para dispositvos Android e IOS implementado com Flutter",
+    image: "@/assets/flutter-app.png",
+    tags: ["Flutter", "Material UI", "Dart"],
+    github: "https://github.com/gustavogss/delivery",
   },
 ];
 
@@ -69,13 +62,6 @@ export default function Portfolio() {
                 >
                   <Github className="w-5 h-5" />
                   <span>Código</span>
-                </a>
-                <a
-                  href={project.demo}
-                  className="flex items-center gap-2 text-card-foreground hover:text-card-text-muted transition-smooth"
-                >
-                  <ExternalLink className="w-5 h-5" />
-                  <span>Demo</span>
                 </a>
               </div>
             </div>
