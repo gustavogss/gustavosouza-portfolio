@@ -15,7 +15,8 @@ const projects = [
     title: "delivery",
     description:
       "Aplicativo de Delivery para dispositvos Android e IOS implementado com Flutter",
-    image: "@/assets/flutter-app.png",
+    image:
+      "https://github.com/gustavogss/gustavosouza-portfolio/blob/main/src/assets/flutter-app.png",
     tags: ["Flutter", "Material UI", "Dart"],
     github: "https://github.com/gustavogss/delivery",
   },
