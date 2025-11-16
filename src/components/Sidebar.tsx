@@ -42,7 +42,7 @@ const menuItems = [
     ],
   },
   { name: "Formação", icon: GraduationCap, path: "/education" },
-  // Blog normalizado para o mesmo padrão dos demais
+
   { name: "Blog", icon: FileText, path: "/blog" },
 ];
 
@@ -179,7 +179,7 @@ export function Sidebar() {
         {/* Footer */}
         <div className="space-y-4 pt-6 border-t border-border">
           <a
-            href="https://gustavosouza.dev.br/wp-content/curriculum/Profile.pdf"
+            href="https://gsolucoesdigitais.com.br/curriculum/curriculum-vitae.pdf"
             download
             className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary-hover transition-smooth animation-pulse-subtle"
           >
@@ -198,7 +198,7 @@ export function Sidebar() {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com/in/gustavogss"
+              href="https://www.linkedin.com/in/gustavosouza-jp/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg text-sidebar-text hover:text-sidebar-hover hover:scale-110 transition-smooth"
@@ -207,7 +207,7 @@ export function Sidebar() {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://instagram.com/gustavogss"
+              href="https://www.instagram.com/gdevsec"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg text-sidebar-text hover:text-sidebar-hover hover:scale-110 transition-smooth"
