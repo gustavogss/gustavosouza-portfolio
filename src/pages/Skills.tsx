@@ -1,4 +1,5 @@
 import { PageLayout } from "@/components/PageLayout";
+import HeaderPage from "@/components/ui/header-page";
 import { Outlet, useLocation } from "react-router-dom";
 import { Check } from "lucide-react";
 
@@ -80,11 +81,11 @@ export default function Skills() {
 
   if (location.pathname === "/skills") {
     return (
-      <PageLayout
-        title="Habilidades"
-        description="Minhas competências técnicas e ferramentas"
-        centered
-      >
+      <PageLayout centered>
+        <HeaderPage
+          title="Habilidades"
+          subtitle="Minhas competências técnicas e ferramentas"
+        />
         <div className="animate-section text-center py-12">
           <p className="text-xl text-muted-foreground">
             Selecione uma categoria no menu para ver as habilidades específicas
@@ -96,11 +97,11 @@ export default function Skills() {
 
   if (currentCategory) {
     return (
-      <PageLayout
-        title={currentCategory.title}
-        description={currentCategory.subtitle || "Tecnologias e ferramentas"}
-        centered
-      >
+      <PageLayout centered>
+        <HeaderPage
+          title={currentCategory.title}
+          subtitle={currentCategory.subtitle || "Tecnologias e ferramentas"}
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {currentCategory.skills.map((skill, index) => (
             <div

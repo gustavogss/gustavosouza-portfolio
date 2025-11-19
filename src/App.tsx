@@ -30,7 +30,9 @@ const App = () => {
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+          {isLoading && (
+            <LoadingScreen onLoadingComplete={handleLoadingComplete} />
+          )}
           <BrowserRouter>
             <DashboardLayout>
               <Routes>

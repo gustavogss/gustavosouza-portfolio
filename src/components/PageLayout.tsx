@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface PageLayoutProps {
   children: ReactNode;
-  title: string;
+  title?: string;
   description?: string;
   centered?: boolean;
 }
@@ -58,17 +58,37 @@ export function PageLayout({
   }, [children]);
 
   return (
-    <div ref={containerRef} className="min-h-screen">
+    <div ref={containerRef} className="min-h-screen px-4 sm:px-6 lg:px-12 pt-1">
       <div
         ref={headerRef}
-        className={`mb-12 ${centered ? "text-center" : "text-left"}`}
+        className={`mb-10 sm:mb-14 ${centered ? "text-center" : "text-left"}`}
       >
-        <h1 className="text-5xl font-bold text-foreground mb-4">{title}</h1>
+        <h1
+          className="
+            font-bold text-foreground mb-2            
+            text-4xl sm:text-5xl lg:text-6xl
+            leading-tight
+          "
+        >
+          {title}
+        </h1>
+
         {description && (
-          <p className="text-xl text-muted-foreground">{description}</p>
+          <p
+            className="
+              text-base sm:text-lg md:text-xl
+              text-muted-foreground
+              max-w-2xl
+              mx-auto
+              leading-relaxed
+            "
+          >
+            {description}
+          </p>
         )}
       </div>
-      {children}
+
+      <div className="w-full">{children}</div>
     </div>
   );
 }

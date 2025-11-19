@@ -6,6 +6,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { Github } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import HeaderPage from "@/components/ui/header-page";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,7 +88,7 @@ export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("web");
   const categoriesRef = useRef<HTMLDivElement>(null);
 
-  // Animação inicial das abas
+  // animação abas
   useEffect(() => {
     if (categoriesRef.current) {
       gsap.fromTo(
@@ -113,7 +114,7 @@ export default function Portfolio() {
     };
   }, []);
 
-  // Animação ao trocar de categoria
+  // animação troca de categoria
   useEffect(() => {
     const buttons = document.querySelectorAll(".category-btn");
     gsap.fromTo(
@@ -130,17 +131,18 @@ export default function Portfolio() {
   }, [activeCategory]);
 
   const filteredProjects = projects.filter(
-    (project) => project.category === activeCategory
+    (p) => p.category === activeCategory
   );
 
   return (
-    <PageLayout
-      title="Portfólio"
-      description={categoryDescriptions[activeCategory]}
-      centered
-    >
-      {/* Abas de categorias centralizadas */}
-      <div className="flex justify-center mb-10">
+    <PageLayout centered>
+      <HeaderPage
+        title="Portfólio"
+        subtitle="Alguns projetos desenvolvidos e implementados"
+      />
+
+      {/* Categorias */}
+      <div className="flex justify-center mb-12">
         <div
           ref={categoriesRef}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 w-1/2 justify-items-center"
@@ -162,7 +164,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* Lista de projetos com animação */}
+      {/* Lista de projetos */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeCategory}
@@ -186,13 +188,16 @@ export default function Portfolio() {
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
+
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-card-foreground mb-3">
                   {project.title}
                 </h3>
+
                 <p className="text-card-text-muted mb-4">
                   {project.description}
                 </p>
+
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
@@ -203,6 +208,7 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
+
                 <a
                   href={project.github}
                   target="_blank"

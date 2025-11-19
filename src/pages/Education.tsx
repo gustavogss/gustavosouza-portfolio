@@ -1,5 +1,8 @@
+import { useEffect, useRef } from "react";
 import { PageLayout } from "@/components/PageLayout";
+import HeaderPage from "@/components/ui/header-page";
 import { GraduationCap, Award } from "lucide-react";
+import { gsap } from "gsap";
 
 const education = [
   {
@@ -55,54 +58,94 @@ const certifications = [
 ];
 
 export default function Education() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Inicial fade-in dos cards
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const items =
+      containerRef.current.querySelectorAll<HTMLElement>(".animate-section");
+
+    gsap.fromTo(
+      items,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.1 }
+    );
+  }, []);
+
+  // Função para pulse
+  const handleMouseEnter = (el: HTMLElement) => {
+    gsap.to(el, {
+      scale: 1.05,
+      yoyo: true,
+      repeat: -1,
+      duration: 0.8,
+      ease: "power1.inOut",
+    });
+  };
+
+  const handleMouseLeave = (el: HTMLElement) => {
+    gsap.killTweensOf(el);
+    gsap.to(el, { scale: 1, duration: 0.2 });
+  };
+
   return (
-    <PageLayout
-      title="Formação Acadêmica"
-      description="Educação e certificações profissionais"
-      centered
-    >
-      <div className="space-y-12 text-center">
-        {/* Formação Acadêmica */}
-        <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-foreground flex items-center justify-center gap-3">
+    <PageLayout centered>
+      <HeaderPage
+        title="Formação Acadêmica"
+        subtitle="Educação e certificações profissionais"
+      />
+
+      <div ref={containerRef} className="space-y-1 text-center mb-4">
+        {/* Educação */}
+        <div className="mb-10">
+          <h2 className="text-3xl font-bold text-foreground flex items-center justify-center gap-3 mb-5">
             <GraduationCap className="w-8 h-8 text-primary" />
             Educação
           </h2>
-
-          <div className="space-y-6 text-left">
+          <div className="space-y-4 text-left">
             {education.map((edu, index) => (
               <div
                 key={index}
-                className="animate-section bg-card rounded-xl p-6 border border-border hover:scale-105 transition-transform duration-300"
+                className="animate-section bg-card rounded-xl p-4 border border-border hover:scale-105 transition-transform duration-300"
+                onMouseEnter={(e) => handleMouseEnter(e.currentTarget)}
+                onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
               >
-                <h3 className="text-2xl font-bold text-card-foreground mb-2">
+                <h3 className="text-xl font-bold text-card-foreground mb-1">
                   {edu.degree}
                 </h3>
-                <div className="flex flex-wrap items-center text-lg text-card-text-muted mb-3 gap-2">
+                <div className="flex flex-wrap items-center text-sm text-card-text-muted mb-2 gap-2">
                   <span className="font-semibold">{edu.institution}</span>
                   <span className="text-muted-foreground">•</span>
                   <span>{edu.period}</span>
                 </div>
-                <p className="text-card-foreground">{edu.description}</p>
+                <p className="text-card-foreground text-sm">
+                  {edu.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Certificações */}
-        <div className="space-y-10">
-          <h2 className="text-3xl font-bold text-foreground flex items-center justify-center gap-3">
+        <div className="mt-1">
+          <h2 className="text-3xl font-bold text-foreground flex items-center justify-center gap-3 mb-5">
             <Award className="w-8 h-8 text-primary" />
             Certificações
           </h2>
 
-          <div className="animate-section grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left p-2">
             {certifications.map((cert, index) => (
               <div
                 key={index}
-                className="bg-card rounded-xl p-4 border border-border flex items-center gap-3 hover:scale-105 transition-transform duration-300"
+                className="animate-section bg-card rounded-xl p-3 border border-border flex items-center gap-2 hover:scale-105 transition-transform duration-300"
+                onMouseEnter={(e) => handleMouseEnter(e.currentTarget)}
+                onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
               >
-                <span className="text-card-foreground font-medium">{cert}</span>
+                <span className="text-card-foreground font-medium text-sm">
+                  {cert}
+                </span>
               </div>
             ))}
           </div>
